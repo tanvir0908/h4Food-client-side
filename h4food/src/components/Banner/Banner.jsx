@@ -14,9 +14,9 @@ export default function Banner() {
         />
         <div className="from-[#151515] overflow-hidden bg-gradient-to-r rounded-xl w-full h-full absolute top-0 right-0">
           <div className="px-10 md:px-20 lg:px-0 lg:pl-[10%] h-full pt-[30%] md:pt-[12.5%] md:w-3/4 lg:w-1/2 text-white">
-            <h1 className="text-4xl lg:text-5xl font-semibold leading-tight">
-              Embark on a Flavorful Journey with{" "}
-              <span className="text-primary font-bold">h4Food</span>
+            <h1 className="text-4xl lg:text-5xl font-semibold leading-tight md:leading-snug lg:leading-tight">
+              Embark on a Flavorful Journey with
+              <span className="text-primary font-bold"> h4Food</span>
             </h1>
             <p className="my-8 text-lg font-medium leading-8">
               Savor the culinary enchantment of h4Food, where every dish is a
