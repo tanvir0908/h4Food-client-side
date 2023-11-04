@@ -12,7 +12,6 @@ export default {
     },
     fontFamily: {
       primary: ["Poppins", "sans-serif"],
-      secondary: ["Yanone Kaffeesatz", "serif"],
     },
   },
   plugins: [],
