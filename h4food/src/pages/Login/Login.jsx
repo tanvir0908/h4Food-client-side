@@ -54,18 +54,21 @@ export default function Login() {
 
   return (
     <Container>
-      <div className="flex flex-col justify-center pb-20 rounded-xl bg-rose-200 h-[85vh]">
-        <h2 className="text-5xl font-bold text-primary text-center my-10">
+      <div className="flex flex-col mb-12 justify-center pb-20 rounded-xl bg-rose-200 h-[85vh]">
+        <h2 className="text-4xl lg:text-5xl font-bold text-primary text-center my-10">
           Please Login
         </h2>
-        <form onSubmit={handleLogin} className="md:w-3/4 lg:w-2/6 mx-auto">
+        <form
+          onSubmit={handleLogin}
+          className="px-5 md:px-0 w-full md:w-3/4 lg:w-2/6 mx-auto"
+        >
           <div className="flex flex-col">
             <span className="text-lg font-medium">Email</span>
             <input
               type="email"
               name="email"
               placeholder="Enter your email"
-              className="px-4 py-3 rounded-xl text-lg font-medium"
+              className="px-4 py-3 rounded-xl outline-none border-2 border-primary text-lg font-medium"
               required
             />
           </div>
@@ -75,7 +78,7 @@ export default function Login() {
               type="password"
               name="password"
               placeholder="Enter your password"
-              className="px-4 py-3 rounded-xl text-lg font-medium"
+              className="px-4 py-3 rounded-xl text-lg font-medium outline-none border-2 border-primary"
               required
             />
           </div>
@@ -83,7 +86,7 @@ export default function Login() {
             {loginError}
           </p>
           <div className="form-control mt-6 ">
-            <button className="bg-primary text-white w-full text-lg font-semibold py-3 rounded-xl">
+            <button className="bg-primary border-2 border-primary text-white w-full text-lg font-semibold py-3 rounded-xl">
               Login
             </button>
           </div>

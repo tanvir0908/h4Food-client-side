@@ -49,11 +49,14 @@ export default function Register() {
 
   return (
     <Container>
-      <div className="bg-rose-200 rounded-xl flex flex-col justify-center h-[85vh]">
-        <h2 className="text-5xl font-bold text-primary text-center my-10">
+      <div className="bg-rose-200 mb-12 rounded-xl flex flex-col justify-center h-[85vh]">
+        <h2 className="text-4xl lg:text-5xl font-bold text-primary text-center my-10">
           Please Register
         </h2>
-        <form onSubmit={handleRegister} className="md:w-3/4 lg:w-2/6 mx-auto">
+        <form
+          onSubmit={handleRegister}
+          className="px-5 md:px-0 w-full md:w-3/4 lg:w-2/6 mx-auto"
+        >
           <div className="flex flex-col">
             <span className="text-lg font-medium">Name</span>
             <input
@@ -61,7 +64,7 @@ export default function Register() {
               type="text"
               name="name"
               placeholder="Enter your name"
-              className="px-4 py-3 rounded-xl text-lg font-medium"
+              className="px-4 py-3 rounded-xl text-lg font-medium outline-none border-2 border-primary"
             />
           </div>
           <div className="flex flex-col my-3">
@@ -71,7 +74,7 @@ export default function Register() {
               type="text"
               name="photo"
               placeholder="Enter your photo URL"
-              className="px-4 py-3 rounded-xl text-lg font-medium"
+              className="px-4 py-3 rounded-xl text-lg font-medium outline-none border-2 border-primary"
             />
           </div>
           <div className="flex flex-col">
@@ -80,7 +83,7 @@ export default function Register() {
               type="email"
               name="email"
               placeholder="Enter your email"
-              className="px-4 py-3 rounded-xl text-lg font-medium"
+              className="px-4 py-3 rounded-xl text-lg font-medium outline-none border-2 border-primary"
               required
             />
           </div>
@@ -90,7 +93,7 @@ export default function Register() {
               type="password"
               name="password"
               placeholder="Enter your password"
-              className="px-4 py-3 rounded-xl text-lg font-medium"
+              className="px-4 py-3 rounded-xl text-lg font-medium outline-none border-2 border-primary"
               required
             />
           </div>
@@ -98,7 +101,7 @@ export default function Register() {
             {error}
           </p>
           <div className="form-control mt-6 ">
-            <button className="bg-primary text-white w-full text-lg font-semibold py-3 rounded-xl">
+            <button className="bg-primary text-white w-full text-lg font-semibold py-3 rounded-xl border-2 border-primary">
               Register
             </button>
           </div>

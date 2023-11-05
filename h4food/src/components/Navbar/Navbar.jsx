@@ -73,7 +73,7 @@ export default function Navbar() {
               </button>
             </>
           ) : (
-            <Link className="hidden lg:block">
+            <Link to={"/login"} className="hidden lg:block">
               <button className="border-2  px-8 py-3 text-primary hover:shadow-md hover:bg-primary transition hover:text-white  xl:text-lg font-semibold rounded-xl border-primary">
                 Login
               </button>
@@ -106,9 +106,11 @@ export default function Navbar() {
               </NavLink>
             </div>
             <div className="mx-6 pb-6 pt-1 rounded-b-lg">
-              <button className="border-2 w-full text-center px-3 py-3 text-primary hover:shadow-md hover:bg-primary transition hover:text-white font-semibold rounded-xl border-primary">
-                Login
-              </button>
+              <Link to={"/login"}>
+                <button className="border-2 w-full text-center px-3 py-3 text-primary hover:shadow-md hover:bg-primary transition hover:text-white font-semibold rounded-xl border-primary">
+                  Login
+                </button>
+              </Link>
             </div>
           </div>
         )}
