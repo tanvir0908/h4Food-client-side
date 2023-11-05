@@ -24,14 +24,16 @@ export default function Login() {
     const password = form.password.value;
     console.log(email, password);
 
+    const toastLoading = toast.loading('Logging in...')
+
     loginUser(email, password)
       .then((result) => {
         navigate(location?.state ? location.state : "/");
         console.log(result.user);
-        setTimeout(() => {}, 200);
+        // setTimeout(() => {}, 200);
 
         //Success message
-        toast.success("Logged in successfully");
+        toast.success("Logged in successfully", { id: toastLoading });
       })
       .catch((error) => {
         console.log(error);
