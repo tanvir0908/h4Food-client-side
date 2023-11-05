@@ -7,6 +7,10 @@ import Home from "./pages/Home/Home";
 import AllFoodItems from "./pages/AllFoodItems/AllFoodItems";
 import Blog from "./pages/Blog/Blog";
 import Error from "./components/Error/Error";
+import AuthProvider from "./providers/AuthProvider";
+import Register from "./pages/Register/Register";
+import { Toaster } from "react-hot-toast";
+import Login from "./pages/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -26,12 +30,23 @@ const router = createBrowserRouter([
         path: "blog",
         element: <Blog />,
       },
+      {
+        path: "register",
+        element: <Register />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+    <Toaster position="top-center" />
   </React.StrictMode>
 );

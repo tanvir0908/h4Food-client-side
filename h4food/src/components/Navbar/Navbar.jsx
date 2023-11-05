@@ -1,12 +1,20 @@
 /* eslint-disable react/no-unknown-property */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
 import { Link, NavLink } from "react-router-dom";
 import Container from "../Container/Container";
+import { AuthContext } from "../../providers/AuthProvider";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, logoutUser } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logoutUser()
+      .then((result) => console.log(result))
+      .catch((error) => console.log(error));
+  };
 
   const handleOpen = () => {
     setIsOpen(!isOpen);
@@ -49,11 +57,28 @@ export default function Navbar() {
           </NavLink>
         </div>
         <div className="flex gap-5 items-center relative">
-          <Link className="hidden lg:block">
-            <button className="border-2  px-8 py-3 text-primary hover:shadow-md hover:bg-primary transition hover:text-white  xl:text-lg font-semibold rounded-xl border-primary">
-              Login
-            </button>
-          </Link>
+          {/* toggle login logout button */}
+          {user ? (
+            <>
+              <img
+                className="w-10 border-2 border-primary rounded-full"
+                src={user.photoURL}
+                alt=""
+              />
+              <button
+                className="border-2  px-8 py-3 text-primary hover:shadow-md hover:bg-primary transition hover:text-white  xl:text-lg font-semibold rounded-xl border-primary"
+                onClick={handleLogout}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link className="hidden lg:block">
+              <button className="border-2  px-8 py-3 text-primary hover:shadow-md hover:bg-primary transition hover:text-white  xl:text-lg font-semibold rounded-xl border-primary">
+                Login
+              </button>
+            </Link>
+          )}
           <div className="lg:hidden" onClick={handleOpen}>
             {isOpen ? (
               <IoClose className="text-primary" size={30} />
