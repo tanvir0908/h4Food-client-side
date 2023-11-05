@@ -61,7 +61,7 @@ export default function Navbar() {
           {user ? (
             <>
               <img
-                className="w-10 border-2 border-primary rounded-full"
+                className="w-12 border-2 border-primary rounded-full"
                 src={user.photoURL}
                 alt=""
               />

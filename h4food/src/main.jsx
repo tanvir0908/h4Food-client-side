@@ -11,6 +11,7 @@ import AuthProvider from "./providers/AuthProvider";
 import Register from "./pages/Register/Register";
 import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login/Login";
+import FoodDetails from "./components/FoodDetails/FoodDetails";
 
 const router = createBrowserRouter([
   {
@@ -35,8 +36,12 @@ const router = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login />,
+      },
+      {
+        path: "allFoodItems/:id",
+        element: <FoodDetails />,
       },
     ],
   },

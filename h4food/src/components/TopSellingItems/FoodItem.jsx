@@ -4,7 +4,7 @@
 export default function FoodItem({ item }) {
   const { foodName, foodImage, foodCategory, price } = item;
   return (
-    <div className="p-7 border-2 hover:bg-rose-100 rounded-xl cursor-pointer border-primary overflow-hidden">
+    <div className="p-7 border-2 hover:bg-rose-100 hover:shadow-md rounded-xl cursor-pointer border-primary overflow-hidden">
       <div className="overflow-hidden">
         <img
           className="rounded-xl hover:rounded-xl hover:scale-105 w-full h-[30vh] transition-all duration-500 cursor-pointer object-cover"

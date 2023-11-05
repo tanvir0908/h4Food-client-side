@@ -42,14 +42,15 @@ export default function Login() {
   };
 
   const loginWithGoogle = () => {
+    const toastLoading = toast.loading("Logging in...");
     googleLogin()
       .then((result) => {
         console.log(result.user);
         navigate(location?.state ? location.state : "/");
-        setTimeout(() => {}, 200);
+        // setTimeout(() => {}, 200);
 
         //Success message
-        toast.success("Logged in successfully");
+        toast.success("Logged in successfully", { id: toastLoading });
       })
       .catch((error) => console.log(error));
   };
