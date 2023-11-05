@@ -16,8 +16,8 @@ export default function FoodItem({ item }) {
         <h2 className="text-2xl font-semibold">
           <span className="text-primary">Name:</span> {foodName}
         </h2>
-        <div className="flex justify-between my-5">
-          <p className="text-lg font-medium border-2 border-primary px-3 py-1 rounded-xl">
+        <div className="flex flex-col lg:flex-row justify-between my-5">
+          <p className="text-lg font-medium border-2 mb-3 lg:mb-0 border-primary px-3 py-1 rounded-xl">
             <span className="text-primary">Category:</span> {foodCategory}
           </p>
           <p className="text-lg font-medium border-2 border-primary px-3 py-1 rounded-xl">

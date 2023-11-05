@@ -18,7 +18,7 @@ export default function TopSellingItems() {
         <h2 className="text-5xl font-semibold text-primary text-center my-10">
           Our Most Popular Food Items
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mx-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:mx-32">
           {topSellingFood.map((item) => (
             <FoodItem key={item._id} item={item} />
           ))}
