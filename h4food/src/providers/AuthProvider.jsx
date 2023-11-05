@@ -44,7 +44,7 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log("Observing current user", currentUser);
+      // console.log("Observing current user", currentUser);
       setLoading(false);
     });
 
