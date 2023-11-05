@@ -40,8 +40,10 @@ const router = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "allFoodItems/:id",
+        path: "foodDetails/:id",
         element: <FoodDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/api/v1/foodDetails/${params.id}`),
       },
     ],
   },

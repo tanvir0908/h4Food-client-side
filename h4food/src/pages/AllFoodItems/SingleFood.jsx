@@ -20,17 +20,17 @@ export default function SingleFood({ food }) {
           <span className="text-primary">Name:</span> {foodName}
         </h2>
         <div className="flex flex-col lg:flex-row justify-between my-5">
-          <p className="text-lg font-medium border-2 mb-3 lg:mb-0 border-primary px-3 py-1 rounded-xl">
+          <p className="text-lg font-medium mb-3 lg:mb-0">
             <span className="text-primary">Category:</span> {foodCategory}
           </p>
-          <p className="text-lg font-medium border-2 border-primary px-3 py-1 rounded-xl">
+          <p className="text-lg font-medium">
             <span className="text-primary ">Quantity:</span> {quantity}
           </p>
         </div>
-        <p className="text-xl text-center font-medium border-2 border-primary px-3 py-2 mb-5 rounded-xl">
+        <p className="text-xl font-medium mb-5 rounded-xl">
           <span className="text-primary ">Price:</span> {price}
         </p>
-        <Link to={`./${_id}`}>
+        <Link to={`/foodDetails/${_id}`}>
           <button className="border rounded-xl px-3 py-3 w-full font-medium text-white bg-primary">
             Details
           </button>

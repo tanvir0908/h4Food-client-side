@@ -13,7 +13,7 @@ export default function Register() {
   }, []);
 
   const [error, setError] = useState(null);
-  const { createUser } = useContext(AuthContext);
+  const { createUser, logoutUser } = useContext(AuthContext);
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ export default function Register() {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-
+    const toastLoading = toast.loading("Creating user...");
     // Password validation
     if (/^(?=.*[A-Z])(?=.*[\W_]).{6,}$/.test(password)) {
       // Create user
@@ -33,11 +33,11 @@ export default function Register() {
             displayName: name,
             photoURL: photo,
           });
+          logoutUser()
+          .then()
+          .catch(error =>console.log(error))
           //Success message
-          toast.success("User created successfully");
-          // Reload window
-          document.location.reload();
-          window.location.reload();
+          toast.success("User created successfully", { id: toastLoading });
         })
         .catch((error) => console.log(error));
     } else {
