@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import SingleFood from "./SingleFood";
+import { useLoaderData } from "react-router-dom";
+import "./AllFoodItems.css";
 
 export default function AllFoodItems() {
   useEffect(() => {
@@ -12,6 +14,15 @@ export default function AllFoodItems() {
   const [allFoods, setAllFoods] = useState([]);
   const [filteredFoods, setFilteredFoods] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const { count } = useLoaderData();
+  const itemsPerPage = 9;
+  const numberOfPages = Math.ceil(count / itemsPerPage);
+  const pages = [];
+  for (let i = 0; i < numberOfPages; i++) {
+    pages.push(i);
+  }
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/v1/foodItems").then((res) => {
@@ -66,13 +77,32 @@ export default function AllFoodItems() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 mx-60 gap-10">
-        {filteredFoods.map((food) => (
-          <SingleFood key={food._id} food={food} />
-        ))}
-        {/* {allFoods.map((food) => (
-          <SingleFood key={food._id} food={food} />
-        ))} */}
+      <div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 mx-60 gap-10">
+          {filteredFoods.map((food) => (
+            <SingleFood key={food._id} food={food} />
+          ))}
+        </div>
+
+        {filteredFoods.length != 0 ? (
+          <div className="text-center mt-10">
+            {pages.map((page) => (
+              <button
+                onClick={() => setCurrentPage(page)}
+                className={
+                  currentPage === page
+                    ? "bg-white border-2 border-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-primary"
+                    : "bg-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-white"
+                }
+                key={page}
+              >
+                {page}
+              </button>
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       {filteredFoods.length == 0 ? (
         <div className="h-[40vh] flex justify-center items-center">

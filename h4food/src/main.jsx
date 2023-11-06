@@ -26,6 +26,7 @@ const router = createBrowserRouter([
       {
         path: "allFoodItems",
         element: <AllFoodItems />,
+        loader: () => fetch("http://localhost:5000/api/v1/foodsCount"),
       },
       {
         path: "blog",
