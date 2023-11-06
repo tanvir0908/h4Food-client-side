@@ -25,14 +25,20 @@ export default function AllFoodItems() {
   }
 
   useEffect(() => {
+    axios
+      .get(`http://localhost:5000/api/v1/pageItems?page=${currentPage}`)
+      .then((res) => setFilteredFoods(res.data));
+  }, [currentPage]);
+
+  useEffect(() => {
     axios.get("http://localhost:5000/api/v1/foodItems").then((res) => {
       setAllFoods(res.data);
-      setFilteredFoods(res.data);
     });
   }, []);
 
   const handleClear = () => {
-    setFilteredFoods(allFoods);
+    // setFilteredFoods(allFoods);
+    setCurrentPage("0");
     setSearchText("");
   };
 
@@ -79,9 +85,9 @@ export default function AllFoodItems() {
 
       <div>
         <div className="grid grid-cols-1 lg:grid-cols-2 mx-60 gap-10">
-          {/* {filteredFoods.map((food) => (
+          {filteredFoods.map((food) => (
             <SingleFood key={food._id} food={food} />
-          ))} */}
+          ))}
         </div>
 
         {filteredFoods.length != 0 ? (
