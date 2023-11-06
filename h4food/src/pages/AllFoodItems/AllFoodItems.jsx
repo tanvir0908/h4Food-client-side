@@ -37,9 +37,12 @@ export default function AllFoodItems() {
   }, []);
 
   const handleClear = () => {
-    // setFilteredFoods(allFoods);
-    setCurrentPage("0");
     setSearchText("");
+    if (currentPage == 0) {
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(0);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -89,46 +92,47 @@ export default function AllFoodItems() {
             <SingleFood key={food._id} food={food} />
           ))}
         </div>
-
-        {filteredFoods.length != 0 ? (
-          <div className="text-center mt-10">
-            {currentPage != 0 ? (
-              <button
-                onClick={() => setCurrentPage(currentPage - 1)}
-                className="bg-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-white"
-              >
-                Prev
-              </button>
-            ) : (
-              ""
-            )}
-            {pages.map((page) => (
-              <button
-                onClick={() => setCurrentPage(page)}
-                className={
-                  currentPage === page
-                    ? "bg-white border-2 border-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-primary"
-                    : "bg-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-white"
-                }
-                key={page}
-              >
-                {page + 1}
-              </button>
-            ))}
-            {currentPage != numberOfPages - 1 ? (
-              <button
-                onClick={() => setCurrentPage(currentPage + 1)}
-                className="bg-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-white"
-              >
-                Next
-              </button>
-            ) : (
-              ""
-            )}
-          </div>
-        ) : (
-          ""
-        )}
+        <div>
+          {filteredFoods.length != 0 ? (
+            <div className="text-center mt-10">
+              {currentPage != 0 ? (
+                <button
+                  onClick={() => setCurrentPage(currentPage - 1)}
+                  className="bg-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-white"
+                >
+                  Prev
+                </button>
+              ) : (
+                ""
+              )}
+              {pages.map((page) => (
+                <button
+                  onClick={() => setCurrentPage(page)}
+                  className={
+                    currentPage === page
+                      ? "bg-white border-2 border-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-primary"
+                      : "bg-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-white"
+                  }
+                  key={page}
+                >
+                  {page + 1}
+                </button>
+              ))}
+              {currentPage != numberOfPages - 1 ? (
+                <button
+                  onClick={() => setCurrentPage(currentPage + 1)}
+                  className="bg-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-white"
+                >
+                  Next
+                </button>
+              ) : (
+                ""
+              )}
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
       {filteredFoods.length == 0 ? (
         <div className="h-[40vh] flex justify-center items-center">
