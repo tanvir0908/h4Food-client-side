@@ -79,13 +79,23 @@ export default function AllFoodItems() {
 
       <div>
         <div className="grid grid-cols-1 lg:grid-cols-2 mx-60 gap-10">
-          {filteredFoods.map((food) => (
+          {/* {filteredFoods.map((food) => (
             <SingleFood key={food._id} food={food} />
-          ))}
+          ))} */}
         </div>
 
         {filteredFoods.length != 0 ? (
           <div className="text-center mt-10">
+            {currentPage != 0 ? (
+              <button
+                onClick={() => setCurrentPage(currentPage - 1)}
+                className="bg-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-white"
+              >
+                Prev
+              </button>
+            ) : (
+              ""
+            )}
             {pages.map((page) => (
               <button
                 onClick={() => setCurrentPage(page)}
@@ -96,9 +106,19 @@ export default function AllFoodItems() {
                 }
                 key={page}
               >
-                {page}
+                {page + 1}
               </button>
             ))}
+            {currentPage != numberOfPages - 1 ? (
+              <button
+                onClick={() => setCurrentPage(currentPage + 1)}
+                className="bg-primary mx-1 w-[5rem] h-[3rem] rounded-xl font-medium text-white"
+              >
+                Next
+              </button>
+            ) : (
+              ""
+            )}
           </div>
         ) : (
           ""
