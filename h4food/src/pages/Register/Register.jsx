@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../../providers/AuthProvider";
 import Container from "../../components/Container/Container";
@@ -15,6 +15,8 @@ export default function Register() {
   const [error, setError] = useState(null);
   const { createUser, logoutUser } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,9 +24,10 @@ export default function Register() {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    const toastLoading = toast.loading("Creating user...");
+
     // Password validation
     if (/^(?=.*[A-Z])(?=.*[\W_]).{6,}$/.test(password)) {
+      const toastLoading = toast.loading("Creating user...");
       // Create user
       createUser(email, password)
         .then((result) => {
@@ -34,10 +37,12 @@ export default function Register() {
             photoURL: photo,
           });
           logoutUser()
-          .then()
-          .catch(error =>console.log(error))
-          //Success message
-          toast.success("User created successfully", { id: toastLoading });
+            .then(() => {
+              //Success message
+              toast.success("User created successfully", { id: toastLoading });
+              navigate("/login");
+            })
+            .catch((error) => console.log(error));
         })
         .catch((error) => console.log(error));
     } else {

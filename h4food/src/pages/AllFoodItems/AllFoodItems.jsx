@@ -12,7 +12,7 @@ export default function AllFoodItems() {
   }, []);
 
   return (
-    <div className="my-20">
+    <div className="mb-20">
       <h2 className="text-5xl font-semibold text-center text-primary my-10">All Food Items</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 mx-60 gap-10">
         {allFoods.map((food) => (

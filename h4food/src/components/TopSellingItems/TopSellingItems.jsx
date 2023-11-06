@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import FoodItem from "./FoodItem";
 import Container from "../Container/Container";
+import { Link } from "react-router-dom";
 
 export default function TopSellingItems() {
   const [topSellingFood, setTopSellingFood] = useState([]);
@@ -22,6 +23,13 @@ export default function TopSellingItems() {
           {topSellingFood.map((item) => (
             <FoodItem key={item._id} item={item} />
           ))}
+        </div>
+        <div className="text-center mt-10">
+          <Link to={"/allFoodItems"}>
+            <button className="px-5 py-3 bg-primary font-semibold text-white text-xl rounded-xl">
+              See all Items
+            </button>
+          </Link>
         </div>
       </div>
     </Container>
