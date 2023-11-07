@@ -30,11 +30,11 @@ export default function MyOrderedDFood() {
       <h2 className="text-4xl lg:text-5xl font-semibold text-primary text-center mb-10">
         My Ordered Foods
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mx-5 lg:mx-32">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 md:gap-10 mx-5 md:mx-32">
         {orderedFoods.map((food) => (
           <div
             key={food._id}
-            className="p-5 mx-5 lg:mx-32 md:p-7 border-2 flex flex-col lg:flex-row w-full items-center gap-5 hover:bg-rose-100 hover:shadow-md rounded-xl cursor-pointer border-primary overflow-hidden"
+            className="p-5 lg:mx-32 md:p-7 border-2 flex flex-col lg:flex-row w-full items-center gap-5 hover:bg-rose-100 hover:shadow-md rounded-xl cursor-pointer border-primary overflow-hidden"
           >
             <div className="overflow-hidden">
               <img

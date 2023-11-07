@@ -10,7 +10,7 @@ export default function PrivateRoute({ children }) {
 
   if (loading) {
     return (
-      <div className="w-full h[60vh] h-full flex justify-center items-center">
+      <div className="w-full h-[80vh] flex justify-center items-center text-primary">
         <span className="loading loading-spinner loading-lg"></span>
       </div>
     );
