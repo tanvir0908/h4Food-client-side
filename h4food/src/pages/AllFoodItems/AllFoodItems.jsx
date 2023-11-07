@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import SingleFood from "./SingleFood";
 import { useLoaderData } from "react-router-dom";
-import "./AllFoodItems.css";
 
 export default function AllFoodItems() {
   const [allFoods, setAllFoods] = useState([]);
