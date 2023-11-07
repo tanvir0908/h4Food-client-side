@@ -24,13 +24,13 @@ export default function FoodDetails() {
   }, []);
 
   return (
-    <div className="mx-32 mt-10 mb-20">
-      <h2 className="text-5xl mb-16 text-center font-semibold text-primary">
+    <div className="mx-5 md:mx-32 mt-10 mb-20">
+      <h2 className="text-4xl md:text-5xl mb-16 text-center font-semibold text-primary">
         Food Details
       </h2>
-      <div className="flex items-center gap-10">
+      <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-0">
         <div className="flex-1">
-          <img className="rounded-xl ml-auto w-3/4" src={foodImage} alt="" />
+          <img className="rounded-xl mx-auto w-3/4" src={foodImage} alt="" />
         </div>
         <div className="flex-1 space-y-4">
           <h2 className="text-3xl font-semibold">
