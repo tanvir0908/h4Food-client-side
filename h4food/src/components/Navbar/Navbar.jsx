@@ -9,7 +9,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logoutUser } = useContext(AuthContext);
-
+  const [profile, setProfile] = useState(false);
   const handleLogout = () => {
     logoutUser()
       .then((result) => console.log(result))
@@ -18,6 +18,7 @@ export default function Navbar() {
 
   const handleOpen = () => {
     setIsOpen(!isOpen);
+    setProfile(false);
   };
 
   return (
@@ -61,7 +62,11 @@ export default function Navbar() {
           {user ? (
             <>
               <img
-                className="w-10 h-10 md:w-12 md:h-12 border-2 border-primary rounded-full object-cover"
+                onClick={() => {
+                  setProfile(!profile);
+                  setIsOpen(false);
+                }}
+                className="w-10 cursor-pointer h-10 md:w-12 md:h-12 border-2 border-primary rounded-full object-cover"
                 src={user.photoURL}
                 alt=""
               />
@@ -71,6 +76,37 @@ export default function Navbar() {
               >
                 Logout
               </button>
+              {profile && (
+                <div className="absolute mt-1 md:mt-3 lg:mt-4 top-12 right-12 md:right-48 lg:right-36  w-[15rem] shadow-xl rounded-xl  z-10 bg-rose-200">
+                  <div className="flex flex-col">
+                    <NavLink
+                      to={"/myAddedFoods"}
+                      onClick={() => setProfile(false)}
+                      className={
+                        "rounded-t-xl px-6 py-4  hover:bg-rose-300 font-medium"
+                      }
+                    >
+                      My added food items
+                    </NavLink>
+                    <NavLink
+                      onClick={() => setProfile(false)}
+                      to={"/addNewFood"}
+                      className={"px-6 py-4 hover:bg-rose-300 font-medium"}
+                    >
+                      Add a new food
+                    </NavLink>
+                    <NavLink
+                      onClick={() => setProfile(false)}
+                      to={"/myOrderedFoods"}
+                      className={
+                        "px-6 hover:bg-rose-300 py-4 rounded-b-xl font-medium"
+                      }
+                    >
+                      My ordered food items
+                    </NavLink>
+                  </div>
+                </div>
+              )}
             </>
           ) : (
             <Link to={"/login"} className="hidden lg:block">
@@ -88,13 +124,11 @@ export default function Navbar() {
           </div>
         </div>
         {isOpen && (
-          <div className="absolute mt-5 top-12 right-5 md:right-12  w-[50%] md:w-[35%] shadow-xl rounded-lg  z-10 bg-neutral-200">
+          <div className="absolute mt-8 md:mt-10 top-12 right-5 md:right-12  w-[50%] md:w-[35%] shadow-xl rounded-xl  z-10 bg-rose-200">
             <div className="flex flex-col">
               <NavLink
                 to={"/"}
-                className={
-                  "rounded-t-lg px-6 py-4  hover:bg-neutral-200 font-medium"
-                }
+                className={"rounded-t-xl px-6 py-4 font-medium"}
               >
                 Home
               </NavLink>
@@ -105,7 +139,7 @@ export default function Navbar() {
                 Blog
               </NavLink>
             </div>
-            <div className="mx-6 pb-6 pt-1 rounded-b-lg">
+            <div className="mx-6 pb-6 pt-1 rounded-b-xl">
               {/* <Link to={"/login"}>
                 <button className="border-2 w-full text-center px-3 py-3 text-primary hover:shadow-md hover:bg-primary transition hover:text-white font-semibold rounded-xl border-primary">
                   Login

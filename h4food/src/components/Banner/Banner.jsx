@@ -25,7 +25,7 @@ export default function Banner() {
             </p>
             <Link
               to={"/allFoodItems"}
-              className="bg-primary px-8 py-3 text-white   xl:text-lg font-semibold rounded-xl border-white"
+              className="bg-primary px-8 py-4 text-white   xl:text-lg font-semibold rounded-xl border-white"
             >
               Order Now
             </Link>
