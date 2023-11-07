@@ -61,12 +61,12 @@ export default function Navbar() {
           {user ? (
             <>
               <img
-                className="w-12 border-2 border-primary rounded-full"
+                className="w-10 md:w-12 border-2 border-primary rounded-full"
                 src={user.photoURL}
                 alt=""
               />
               <button
-                className="border-2  px-8 py-3 text-primary hover:shadow-md hover:bg-primary transition hover:text-white  xl:text-lg font-semibold rounded-xl border-primary"
+                className="border-2 hidden md:block  px-8 py-3 text-primary hover:shadow-md hover:bg-primary transition hover:text-white  xl:text-lg font-semibold rounded-xl border-primary"
                 onClick={handleLogout}
               >
                 Logout
@@ -106,11 +106,27 @@ export default function Navbar() {
               </NavLink>
             </div>
             <div className="mx-6 pb-6 pt-1 rounded-b-lg">
-              <Link to={"/login"}>
+              {/* <Link to={"/login"}>
                 <button className="border-2 w-full text-center px-3 py-3 text-primary hover:shadow-md hover:bg-primary transition hover:text-white font-semibold rounded-xl border-primary">
                   Login
                 </button>
-              </Link>
+              </Link> */}
+              {user ? (
+                <>
+                  <button
+                    className="border-2 w-full px-8 py-3 text-primary xl:text-lg font-semibold rounded-xl border-primary"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <Link to={"/login"}>
+                  <button className="border-2 w-full px-8 py-3 text-primary xl:text-lg font-semibold rounded-xl border-primary">
+                    Login
+                  </button>
+                </Link>
+              )}
             </div>
           </div>
         )}
