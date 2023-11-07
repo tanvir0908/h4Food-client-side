@@ -36,6 +36,24 @@ export default function Register() {
             displayName: name,
             photoURL: photo,
           });
+
+          // store users information into database
+          const newUser = {
+            name,
+            photo,
+            email,
+            password,
+          };
+          fetch("http://localhost:5000/api/v1/createUser", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(newUser),
+          })
+            .then((res) => res.json())
+            .then((data) => console.log(data));
+
           logoutUser()
             .then(() => {
               //Success message
@@ -44,7 +62,10 @@ export default function Register() {
             })
             .catch((error) => console.log(error));
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {
+          console.log(error);
+          toast.error("Create new user failed", { id: toastLoading });
+        });
     } else {
       setError(
         "Password should be more than 6 characters with at least 1 capital letter and 1 special character"
