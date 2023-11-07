@@ -69,7 +69,7 @@ export default function UpdateFood() {
 
   return (
     <div className="mt-10 mb-20">
-      <h2 className="text-5xl font-semibold text-primary text-center mb-10">
+      <h2 className="text-4xl lg:text-5xl font-semibold text-primary text-center mb-10">
         Update Food Details
       </h2>
       <div>

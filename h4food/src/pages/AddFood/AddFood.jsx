@@ -56,7 +56,7 @@ export default function AddFood() {
 
   return (
     <div className="mx-5 lg:mx-32 mt-10 mb-20">
-      <h2 className="text-5xl mb-10 text-center font-semibold text-primary mb-10text-5xl">
+      <h2 className="text-4xl lg:text-5xl mb-10 text-center font-semibold text-primary mb-10text-5xl">
         Add New Food
       </h2>
       <div>

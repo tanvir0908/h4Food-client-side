@@ -13,6 +13,7 @@ export default function FoodOrdering() {
     price,
     quantity,
     count,
+    userName,
     userEmail,
     origin,
   } = food;
@@ -38,6 +39,7 @@ export default function FoodOrdering() {
     const orderUserName = form.orderUserName.value;
     const orderUserEmail = form.orderUserEmail.value;
     const orderDate = form.date.value;
+    const foodOwner = userName;
 
     const newOrder = {
       foodName,
@@ -45,6 +47,7 @@ export default function FoodOrdering() {
       foodCategory,
       price,
       origin,
+      foodOwner,
       orderQuantity,
       orderUserName,
       orderUserEmail,

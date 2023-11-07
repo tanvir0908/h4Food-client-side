@@ -16,18 +16,18 @@ export default function MyAddedFood() {
 
   return (
     <div className="mx-5 lg:mx-32 mt-10 mb-20">
-      <h2 className="text-5xl text-center font-semibold text-primary mb-10">
+      <h2 className="text-4xl lg:text-5xl text-center font-semibold text-primary mb-10">
         My Added Food Items
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mx-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mx-5 lg:mx-32">
         {myAddedFoods.map((food) => (
           <div
             key={food._id}
-            className="p-5 md:p-7 border-2 flex flex-col md:flex-row w-full items-center gap-5 hover:bg-rose-100 hover:shadow-md rounded-xl cursor-pointer border-primary overflow-hidden"
+            className="p-5 md:p-7 border-2 flex flex-col lg:flex-row w-full items-center gap-5 hover:bg-rose-100 hover:shadow-md rounded-xl cursor-pointer border-primary overflow-hidden"
           >
             <div className="overflow-hidden">
               <img
-                className="rounded-xl hover:rounded-xl hover:scale-105 md:w-[15rem] md:h-[15rem] transition-all duration-500 cursor-pointer object-cover"
+                className="rounded-xl hover:rounded-xl hover:scale-105 w-[20rem] h-[15rem] transition-all duration-500 cursor-pointer object-cover"
                 src={food.foodImage}
                 alt=""
               />
