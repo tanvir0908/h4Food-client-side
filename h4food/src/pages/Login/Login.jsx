@@ -47,9 +47,27 @@ export default function Login() {
     const toastLoading = toast.loading("Logging in...");
     googleLogin()
       .then((result) => {
-        console.log(result.user);
+        const name = result.user.displayName;
+        const photo = result.user.photoURL;
+        const email = result.user.email;
         navigate(location?.state ? location.state : "/");
         // setTimeout(() => {}, 200);
+
+        // store users information into database
+        const newUser = {
+          name,
+          photo,
+          email,
+        };
+        fetch("http://localhost:5000/api/v1/createUser", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => console.log(data));
 
         //Success message
         toast.success("Logged in successfully", { id: toastLoading });
