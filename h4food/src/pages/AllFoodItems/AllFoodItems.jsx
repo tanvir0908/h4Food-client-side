@@ -5,16 +5,16 @@ import { useLoaderData } from "react-router-dom";
 import "./AllFoodItems.css";
 
 export default function AllFoodItems() {
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-    });
-  }, []);
-
   const [allFoods, setAllFoods] = useState([]);
   const [filteredFoods, setFilteredFoods] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, [currentPage]);
 
   const { count } = useLoaderData();
   const itemsPerPage = 9;
@@ -58,7 +58,7 @@ export default function AllFoodItems() {
 
   return (
     <div className="mb-20">
-      <h2 className="text-5xl font-semibold text-center text-primary my-10">
+      <h2 className="text-4xl md:text-5xl font-semibold text-center text-primary my-10">
         All Food Items
       </h2>
       <div className="mb-10 text-center">
@@ -72,7 +72,7 @@ export default function AllFoodItems() {
             type="text"
             name="search"
             value={searchText}
-            className="border outline-none rounded-l-lg w-1/4 bg-rose-100 px-5 py-3"
+            className="border outline-none rounded-l-lg w-1/2 lg:w-1/4 bg-rose-100 px-5 py-3"
           />
           <button className="bg-primary px-5 py-[0.7rem] rounded-r-lg text-xl font-medium text-white">
             Search
@@ -87,7 +87,7 @@ export default function AllFoodItems() {
       </div>
 
       <div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 mx-60 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 mx-5 md:mx-10 lg:mx-60 gap-10">
           {filteredFoods.map((food) => (
             <SingleFood key={food._id} food={food} />
           ))}

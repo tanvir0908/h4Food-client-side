@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
-import { useLoaderData } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 
 export default function FoodDetails() {
   const foodDetails = useLoaderData();
   const {
+    _id,
     foodName,
     foodImage,
     foodCategory,
@@ -14,6 +16,13 @@ export default function FoodDetails() {
     origin,
     description,
   } = foodDetails;
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
+
   return (
     <div className="mx-32 mt-10 mb-20">
       <h2 className="text-5xl mb-16 text-center font-semibold text-primary">
@@ -37,9 +46,11 @@ export default function FoodDetails() {
           <p className="text-xl font-semibold">
             Price: <span className="text-primary">{price}</span>
           </p>
-          <button className="text-xl font-semibold px-5 py-3 rounded-xl bg-primary text-white">
-            Order Now
-          </button>
+          <Link to={`/foodOrder/${_id}`}>
+            <button className="text-xl mt-5 font-semibold px-5 py-3 rounded-xl bg-primary text-white">
+              Order Now
+            </button>
+          </Link>
         </div>
       </div>
     </div>

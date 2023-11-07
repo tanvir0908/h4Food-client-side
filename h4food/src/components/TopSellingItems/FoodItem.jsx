@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 export default function FoodItem({ item }) {
-  const { foodName, foodImage, foodCategory, price } = item;
+  const { _id, foodName, foodImage, foodCategory, price } = item;
   return (
     <div className="p-7 border-2 hover:bg-rose-100 hover:shadow-md rounded-xl cursor-pointer border-primary overflow-hidden">
       <div className="overflow-hidden">
@@ -24,9 +26,12 @@ export default function FoodItem({ item }) {
             <span className="text-primary ">Price:</span> {price}
           </p>
         </div>
-        <button className="border rounded-xl px-3 py-3 w-full font-medium text-white bg-primary">
-          Details
-        </button>
+        <Link to={`/foodDetails/${_id}`}>
+          {" "}
+          <button className="border rounded-xl px-3 py-3 w-full font-medium text-white bg-primary">
+            Details
+          </button>
+        </Link>
       </div>
     </div>
   );

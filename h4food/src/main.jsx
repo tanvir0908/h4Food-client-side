@@ -12,6 +12,7 @@ import Register from "./pages/Register/Register";
 import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login/Login";
 import FoodDetails from "./components/FoodDetails/FoodDetails";
+import FoodOrdering from "./pages/FoodOrdering/FoodOrdering";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,12 @@ const router = createBrowserRouter([
       {
         path: "foodDetails/:id",
         element: <FoodDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/api/v1/foodDetails/${params.id}`),
+      },
+      {
+        path: "foodOrder/:id",
+        element: <FoodOrdering />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/api/v1/foodDetails/${params.id}`),
       },
