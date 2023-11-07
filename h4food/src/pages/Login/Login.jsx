@@ -24,7 +24,7 @@ export default function Login() {
     const password = form.password.value;
     console.log(email, password);
 
-    const toastLoading = toast.loading('Logging in...')
+    const toastLoading = toast.loading("Logging in...");
 
     loginUser(email, password)
       .then((result) => {
@@ -37,6 +37,8 @@ export default function Login() {
       })
       .catch((error) => {
         console.log(error);
+        //Error message
+        toast.error("Log in failed", { id: toastLoading });
         setLoginError("Invalid email and password");
       });
   };

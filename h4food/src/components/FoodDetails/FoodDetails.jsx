@@ -30,7 +30,11 @@ export default function FoodDetails() {
       </h2>
       <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-0">
         <div className="flex-1">
-          <img className="rounded-xl mx-auto w-3/4" src={foodImage} alt="" />
+          <img
+            className="rounded-xl mx-auto w-[35rem] lg:w-3/4 h-[25rem] md:h-[30rem] lg:h-[35rem] object-cover"
+            src={foodImage}
+            alt=""
+          />
         </div>
         <div className="flex-1 space-y-4">
           <h2 className="text-3xl font-semibold">
