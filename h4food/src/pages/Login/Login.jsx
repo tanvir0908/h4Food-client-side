@@ -30,7 +30,6 @@ export default function Login() {
       .then((result) => {
         navigate(location?.state ? location.state : "/");
         console.log(result.user);
-        // setTimeout(() => {}, 200);
 
         //Success message
         toast.success("Logged in successfully", { id: toastLoading });
