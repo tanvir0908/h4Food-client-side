@@ -7,7 +7,11 @@ export default function SingleFood({ food }) {
   const { _id, foodName, foodImage, foodCategory, price, quantity } = food;
 
   return (
-    <div className="p-5 md:p-7 border-2 flex flex-col md:flex-row w-full items-center gap-5 hover:bg-rose-100 hover:shadow-md rounded-xl cursor-pointer border-primary overflow-hidden">
+    <div
+      data-aos="zoom-in"
+      data-aos-duration="1500"
+      className="p-5 md:p-7 border-2 flex flex-col md:flex-row w-full items-center gap-5 hover:bg-rose-100 hover:shadow-md rounded-xl cursor-pointer border-primary overflow-hidden"
+    >
       <div className="overflow-hidden">
         <img
           className="rounded-xl hover:rounded-xl hover:scale-105 md:w-[15rem] md:h-[15rem] transition-all duration-500 cursor-pointer object-cover"

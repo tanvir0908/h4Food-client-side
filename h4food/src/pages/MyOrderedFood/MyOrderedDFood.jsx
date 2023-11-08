@@ -29,7 +29,7 @@ export default function MyOrderedDFood() {
   return (
     <div className="mt-10 mb-20">
       <Helmet>
-        <title>{user?.displayName} Ordered Foods - h4Food</title>
+        <title>Ordered Foods - h4Food</title>
         <link rel="canonical" href="https://www.tacobell.com/" />
       </Helmet>
       <h2 className="text-4xl lg:text-5xl font-semibold text-primary text-center mb-10">
@@ -39,6 +39,8 @@ export default function MyOrderedDFood() {
         {orderedFoods.map((food) => (
           <div
             key={food._id}
+            data-aos="zoom-in"
+            data-aos-duration="1500"
             className="p-5 lg:mx-32 md:p-7 border-2 flex flex-col lg:flex-row w-full items-center gap-5 hover:bg-rose-100 hover:shadow-md rounded-xl cursor-pointer border-primary overflow-hidden"
           >
             <div className="overflow-hidden">
@@ -78,7 +80,6 @@ export default function MyOrderedDFood() {
             Sorry no item available
           </h2> */}
           <span className="loading loading-spinner loading-lg text-primary"></span>
-          ;
         </div>
       ) : (
         ""

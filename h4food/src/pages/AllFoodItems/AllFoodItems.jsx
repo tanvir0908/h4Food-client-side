@@ -144,7 +144,6 @@ export default function AllFoodItems() {
             Sorry no item available
           </h2> */}
           <span className="loading loading-spinner loading-lg text-primary"></span>
-          ;
         </div>
       ) : (
         ""
