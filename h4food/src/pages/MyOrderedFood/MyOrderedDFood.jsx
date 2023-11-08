@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 export default function MyOrderedDFood() {
   const [orderedFoods, setOrderedFoods] = useState([]);
@@ -27,6 +28,10 @@ export default function MyOrderedDFood() {
 
   return (
     <div className="mt-10 mb-20">
+      <Helmet>
+        <title>{user?.displayName} Ordered Foods - h4Food</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <h2 className="text-4xl lg:text-5xl font-semibold text-primary text-center mb-10">
         My Ordered Foods
       </h2>

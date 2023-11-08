@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function AddFood() {
   const { user } = useContext(AuthContext);
@@ -56,6 +57,10 @@ export default function AddFood() {
 
   return (
     <div className="mx-5 lg:mx-32 mt-10 mb-20">
+      <Helmet>
+        <title>Add New Food - h4Food</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <h2 className="text-4xl lg:text-5xl mb-10 text-center font-semibold text-primary mb-10text-5xl">
         Add New Food
       </h2>

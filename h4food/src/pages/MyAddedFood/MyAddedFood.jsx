@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function MyAddedFood() {
   const { user } = useContext(AuthContext);
@@ -16,6 +17,10 @@ export default function MyAddedFood() {
 
   return (
     <div className="mx-5 lg:mx-32 mt-10 mb-20">
+      <Helmet>
+        <title>{user?.displayName} Added Foods - h4Food</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <h2 className="text-4xl lg:text-5xl text-center font-semibold text-primary mb-10">
         My Added Food Items
       </h2>

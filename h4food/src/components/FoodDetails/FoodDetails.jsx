@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
 export default function FoodDetails() {
@@ -25,6 +26,10 @@ export default function FoodDetails() {
 
   return (
     <div className="mx-5 md:mx-32 mt-10 mb-20">
+      <Helmet>
+        <title>Food Details - h4Food</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <h2 className="text-4xl md:text-5xl mb-16 text-center font-semibold text-primary">
         Food Details
       </h2>

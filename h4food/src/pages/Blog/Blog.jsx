@@ -1,3 +1,5 @@
+import { Helmet } from "react-helmet";
+
 export default function Blog() {
   const blogs = [
     {
@@ -20,6 +22,10 @@ export default function Blog() {
   ];
   return (
     <div className="mx-5 lg:mx-32 mb-20 mt-10">
+      <Helmet>
+        <title>Blog - h4Food</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <h2 className="text-4xl lg:text-5xl font-semibold text-center mx-auto text-primary mb-10">
         Recent Blogs
       </h2>

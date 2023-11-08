@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
 import Container from "../../components/Container/Container";
+import { Helmet } from "react-helmet";
 
 export default function Login() {
   useEffect(() => {
@@ -76,6 +77,10 @@ export default function Login() {
 
   return (
     <Container>
+      <Helmet>
+        <title>Login - h4Food</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <div className="flex flex-col mb-12 justify-center pb-20 rounded-xl bg-rose-200 h-[85vh]">
         <h2 className="text-4xl lg:text-5xl font-bold text-primary text-center my-10">
           Please Login

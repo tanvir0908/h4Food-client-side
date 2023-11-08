@@ -4,6 +4,7 @@ import { updateProfile } from "firebase/auth";
 import { AuthContext } from "../../providers/AuthProvider";
 import Container from "../../components/Container/Container";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 export default function Register() {
   useEffect(() => {
@@ -75,6 +76,10 @@ export default function Register() {
 
   return (
     <Container>
+      <Helmet>
+        <title>Register - h4Food</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <div className="bg-rose-200 mb-12 rounded-xl flex flex-col justify-center h-[85vh]">
         <h2 className="text-4xl lg:text-5xl font-bold text-primary text-center my-10">
           Please Register

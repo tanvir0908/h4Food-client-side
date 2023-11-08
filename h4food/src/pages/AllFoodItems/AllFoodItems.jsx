@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import SingleFood from "./SingleFood";
 import { useLoaderData } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 export default function AllFoodItems() {
   const [allFoods, setAllFoods] = useState([]);
@@ -57,6 +58,10 @@ export default function AllFoodItems() {
 
   return (
     <div className="mb-20">
+      <Helmet>
+        <title>All Food Items - h4Food</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <h2 className="text-4xl md:text-5xl font-semibold text-center text-primary my-10">
         All Food Items
       </h2>

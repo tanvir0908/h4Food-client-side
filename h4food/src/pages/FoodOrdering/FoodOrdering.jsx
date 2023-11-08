@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 export default function FoodOrdering() {
   const food = useLoaderData();
@@ -95,6 +96,10 @@ export default function FoodOrdering() {
 
   return (
     <div className="pb-20 pt-5">
+      <Helmet>
+        <title>Food Ordering Page - h4Food</title>
+        <link rel="canonical" href="https://www.tacobell.com/" />
+      </Helmet>
       <h2 className="text-4xl lg:text-5xl font-bold text-primary text-center my-10">
         Food Ordering Page
       </h2>
