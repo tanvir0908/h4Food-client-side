@@ -45,13 +45,16 @@ export default function Register() {
             email,
             password,
           };
-          fetch("http://localhost:5000/api/v1/createUser", {
-            method: "POST",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(newUser),
-          })
+          fetch(
+            "https://b8a11-server-side-tanvir0908.vercel.app/api/v1/createUser",
+            {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(newUser),
+            }
+          )
             .then((res) => res.json())
             .then((data) => console.log(data));
 

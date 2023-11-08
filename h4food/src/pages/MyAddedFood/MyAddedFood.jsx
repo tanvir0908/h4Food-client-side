@@ -10,7 +10,9 @@ export default function MyAddedFood() {
   const [myAddedFoods, setMyAddedFoods] = useState([]);
 
   useState(() => {
-    fetch(`http://localhost:5000/api/v1/getFoodByEmail?email=${email}`)
+    fetch(
+      `https://b8a11-server-side-tanvir0908.vercel.app/api/v1/getFoodByEmail?email=${email}`
+    )
       .then((res) => res.json())
       .then((data) => setMyAddedFoods(data));
   }, []);

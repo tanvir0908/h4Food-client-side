@@ -39,7 +39,7 @@ export default function AddFood() {
 
     console.log(updatedFood);
 
-    fetch("http://localhost:5000/api/v1/addFood", {
+    fetch("https://b8a11-server-side-tanvir0908.vercel.app/api/v1/addFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",

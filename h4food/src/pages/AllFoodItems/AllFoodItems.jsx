@@ -26,14 +26,18 @@ export default function AllFoodItems() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/v1/pageItems?page=${currentPage}`)
+      .get(
+        `https://b8a11-server-side-tanvir0908.vercel.app/api/v1/pageItems?page=${currentPage}`
+      )
       .then((res) => setFilteredFoods(res.data));
   }, [currentPage]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/v1/foodItems").then((res) => {
-      setAllFoods(res.data);
-    });
+    axios
+      .get("https://b8a11-server-side-tanvir0908.vercel.app/api/v1/foodItems")
+      .then((res) => {
+        setAllFoods(res.data);
+      });
   }, []);
 
   const handleClear = () => {

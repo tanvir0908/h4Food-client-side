@@ -9,7 +9,7 @@ export default function TopSellingItems() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/v1/topSelling")
+      .get("https://b8a11-server-side-tanvir0908.vercel.app/api/v1/topSelling")
       .then((res) => setTopSellingFood(res.data));
   }, []);
 

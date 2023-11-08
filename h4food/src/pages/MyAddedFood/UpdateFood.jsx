@@ -51,13 +51,16 @@ export default function UpdateFood() {
 
     console.log(updatedFood);
 
-    fetch("http://localhost:5000/api/v1/updateFoodDetails", {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedFood),
-    })
+    fetch(
+      "https://b8a11-server-side-tanvir0908.vercel.app/api/v1/updateFoodDetails",
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedFood),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

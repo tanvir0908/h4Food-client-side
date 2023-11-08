@@ -56,7 +56,7 @@ export default function FoodOrdering() {
     };
     const toastLoading = toast.loading("Ordering food...");
 
-    fetch("http://localhost:5000/api/v1/orderFood", {
+    fetch("https://b8a11-server-side-tanvir0908.vercel.app/api/v1/orderFood", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -77,13 +77,16 @@ export default function FoodOrdering() {
             orderQuantity,
           };
 
-          fetch("http://localhost:5000/api/v1/reduceFoodsCount", {
-            method: "PATCH",
-            headers: {
-              "content-type": "application/json",
-            },
-            body: JSON.stringify(countData),
-          })
+          fetch(
+            "https://b8a11-server-side-tanvir0908.vercel.app/api/v1/reduceFoodsCount",
+            {
+              method: "PATCH",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify(countData),
+            }
+          )
             .then((res) => res.json())
             .then((data) => console.log(data));
 

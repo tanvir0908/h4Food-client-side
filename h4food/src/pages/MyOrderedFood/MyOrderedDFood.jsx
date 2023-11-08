@@ -8,14 +8,19 @@ export default function MyOrderedDFood() {
   //   const [remainingOrders, setRemainingOrders] = useState(orderedFoods);
   const { user } = useContext(AuthContext);
   useState(() => {
-    fetch(`http://localhost:5000/api/v1/getOrdersByEmail?email=${user?.email}`)
+    fetch(
+      `https://b8a11-server-side-tanvir0908.vercel.app/api/v1/getOrdersByEmail?email=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setOrderedFoods(data));
   }, []);
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/api/v1/deleteFood?id=${id}`, {
-      method: "DELETE",
-    })
+    fetch(
+      `https://b8a11-server-side-tanvir0908.vercel.app/api/v1/deleteFood?id=${id}`,
+      {
+        method: "DELETE",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {

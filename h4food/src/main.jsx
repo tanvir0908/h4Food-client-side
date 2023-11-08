@@ -32,7 +32,10 @@ const router = createBrowserRouter([
       {
         path: "allFoodItems",
         element: <AllFoodItems />,
-        loader: () => fetch("http://localhost:5000/api/v1/foodsCount"),
+        loader: () =>
+          fetch(
+            "https://b8a11-server-side-tanvir0908.vercel.app/api/v1/foodsCount"
+          ),
       },
       {
         path: "blog",
@@ -40,15 +43,27 @@ const router = createBrowserRouter([
       },
       {
         path: "myAddedFoods",
-        element: <MyAddedFood />,
+        element: (
+          <PrivateRoute>
+            <MyAddedFood />
+          </PrivateRoute>
+        ),
       },
       {
         path: "addNewFood",
-        element: <AddFood />,
+        element: (
+          <PrivateRoute>
+            <AddFood />
+          </PrivateRoute>
+        ),
       },
       {
         path: "myOrderedFoods",
-        element: <MyOrderedDFood />,
+        element: (
+          <PrivateRoute>
+            <MyOrderedDFood />
+          </PrivateRoute>
+        ),
       },
       {
         path: "register",
@@ -62,13 +77,21 @@ const router = createBrowserRouter([
         path: "foodDetails/:id",
         element: <FoodDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/api/v1/foodDetails/${params.id}`),
+          fetch(
+            `https://b8a11-server-side-tanvir0908.vercel.app/api/v1/foodDetails/${params.id}`
+          ),
       },
       {
         path: "updateFoodDetails/:id",
-        element: <UpdateFood />,
+        element: (
+          <PrivateRoute>
+            <UpdateFood />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/api/v1/foodDetails/${params.id}`),
+          fetch(
+            `https://b8a11-server-side-tanvir0908.vercel.app/api/v1/foodDetails/${params.id}`
+          ),
       },
       {
         path: "foodOrder/:id",
@@ -78,7 +101,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/api/v1/foodDetails/${params.id}`),
+          fetch(
+            `https://b8a11-server-side-tanvir0908.vercel.app/api/v1/foodDetails/${params.id}`
+          ),
       },
     ],
   },
