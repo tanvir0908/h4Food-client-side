@@ -87,13 +87,15 @@ export default function Partners() {
 
   return (
     <div className="w-3/4 mt-10 mb-20 mx-auto">
-      <h2 className="text-4xl lg:text-5xl font-semibold text-primary text-center mb-10">Users Reviews</h2>
+      <h2 className="text-4xl lg:text-5xl font-semibold text-primary text-center mb-10">
+        Users Reviews
+      </h2>
       <div className="">
         <Slider {...settings}>
           {reviews.map((partner) => (
             <div
               key={partner.id}
-              className="bg-white cursor-pointer hover:bg-rose-200 transition duration-1000 rounded-xl"
+              className="bg-white border-2 border-primary cursor-pointer hover:bg-rose-200 transition duration-1000 rounded-xl"
             >
               <div className="rounded-t-xl h-56 bg-rose-200 flex justify-center items-center">
                 <img
@@ -102,7 +104,7 @@ export default function Partners() {
                   alt=""
                 />
               </div>
-              <div className="flex h-[14rem] flex-col rounded-b-xl border-red-200 border-2  justify-center items-center gap-5 p-4">
+              <div className="flex h-[14rem] flex-col rounded-b-xl justify-center items-center gap-5 p-4">
                 <h2 className="text-2xl font-semibold text-primary">
                   {partner.name}
                 </h2>
