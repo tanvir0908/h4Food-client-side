@@ -8,7 +8,7 @@ export default function FoodItem({ item }) {
   return (
     <div
       data-aos="zoom-in"
-      data-aos-duration="1500"
+      data-aos-duration="2000"
       className="p-7 border-2 hover:bg-rose-100 hover:shadow-md rounded-xl cursor-pointer border-primary overflow-hidden"
     >
       <div className="overflow-hidden">

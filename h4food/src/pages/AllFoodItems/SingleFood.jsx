@@ -9,7 +9,7 @@ export default function SingleFood({ food }) {
   return (
     <div
       data-aos="zoom-in"
-      data-aos-duration="1500"
+      data-aos-duration="2000"
       className="p-5 md:p-7 border-2 flex flex-col md:flex-row w-full items-center gap-5 hover:bg-rose-100 hover:shadow-md rounded-xl cursor-pointer border-primary overflow-hidden"
     >
       <div className="overflow-hidden">
